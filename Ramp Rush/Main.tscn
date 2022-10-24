@@ -19,7 +19,7 @@ albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 
 [node name="BaseBlock" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 0 )
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
@@ -40,4 +40,4 @@ light_energy = 0.5
 shadow_enabled = true
 
 [node name="Ramp" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
