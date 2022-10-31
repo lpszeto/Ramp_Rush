@@ -1,6 +1,7 @@
 extends StaticBody
 
 export var inUse = false
+export var selected = false
 
 var newMaterial = SpatialMaterial.new()
 var oldMaterial = SpatialMaterial.new()
@@ -25,10 +26,24 @@ func _unhandled_input(event):
 func toggleUse():
 	#changes it from ramp placed to not placed
 		if inUse:
+			print("ON")
 			$CollisionShape.disabled = true
 			$MeshInstance.set_surface_material(0, newMaterial)
 			
 		else:
+			print("OFF")
 			$CollisionShape.disabled = false
 			$MeshInstance.set_surface_material(0, oldMaterial)
 		inUse = !inUse
+
+func _on_Area_area_entered(_area):
+	selected = true
+
+
+func _on_Area_area_exited(area):
+	selected = false
+
+
+func _on_Camera_selecting():
+	if selected:
+		toggleUse()
