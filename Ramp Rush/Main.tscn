@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BaseBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Pivot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ramp.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 30, 1, 30 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 60, 2, 60 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
+
+[node name="Main" type="Node"]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+
+[node name="BaseBlock" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 0 )
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.593953, 0.8045, 0, -0.8045, -0.593953, 0, 30, 0 )
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Ramp" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
