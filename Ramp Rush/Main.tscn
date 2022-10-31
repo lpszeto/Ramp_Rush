@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://BaseBlock.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/dogica.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://Button.gd" type="Script" id=7]
+[ext_resource path="res://ui_theme.tres" type="Theme" id=8]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 30, 1, 30 )
@@ -149,6 +150,14 @@ margin_right = 225.0
 margin_bottom = 193.0
 theme = SubResource( 9 )
 text = "Try Again"
+
+[node name="Blocks" type="Label" parent="Control"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 160.0
+margin_bottom = 44.0
+theme = ExtResource( 8 )
+text = "Blocks: 0 "
 
 [node name="RespawnTimer" type="Timer" parent="."]
 one_shot = true
