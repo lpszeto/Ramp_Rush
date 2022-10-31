@@ -6,7 +6,7 @@ export var SENSITIVITY = 0.2
 signal selecting
 signal deselecting
 
-export var maxActiveBlocks = 3
+export var maxActiveBlocks = 10
 var numActive = 0 
 var velocity = Vector3.ZERO
 

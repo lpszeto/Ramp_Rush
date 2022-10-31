@@ -7,6 +7,7 @@
 [sub_resource type="SphereMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="Ball" type="RigidBody"]
 collision_layer = 4
