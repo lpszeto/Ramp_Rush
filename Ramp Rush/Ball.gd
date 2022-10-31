@@ -1,6 +1,13 @@
 extends RigidBody
 
+#signal collision
+signal win
+signal lose
+var w = "win"
+var l = "lose"
+
 var delay = 0
+
 
 func _ready():
 	randomize()
@@ -21,3 +28,14 @@ func _physics_process(_delta):
 		$DirectionalLight3.light_color = Color(randf(), randf(), randf())
 		$DirectionalLight4.light_color = Color(randf(), randf(), randf())
 		delay = 0
+
+
+func _on_BallHitbox_area_entered(area):
+	if(area.get_parent()._get_isGoal()):
+		emit_signal("win")
+		print(w)
+		#area.get_parent()._change_color(Color.green)
+	else:
+		emit_signal("lose")
+		print(l)
+		#area.get_parent()._change_color(Color.red)
