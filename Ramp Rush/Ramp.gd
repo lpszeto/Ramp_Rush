@@ -13,34 +13,39 @@ func _ready():
 	
 	newMaterial.flags_transparent = true
 	
+	$Area.connect("area_entered", $".", "_on_Area_entered")
+	$Area.connect("area_exited", $".", "_on_Area_exited")
+	
 	#this sets the default condition
 	$CollisionShape.disabled = true
 	$MeshInstance.set_surface_material(0, newMaterial)
 
 #change the layer to none and the color fo a lower alpha value when not used
 #
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept"):
-		toggleUse()
+#func _unhandled_input(event):
+#	if event.is_action_pressed("ui_accept"):
+#		toggleUse()
 
 func toggleUse():
 	#changes it from ramp placed to not placed
 		if inUse:
-			print("ON")
+			print("OFF")
 			$CollisionShape.disabled = true
 			$MeshInstance.set_surface_material(0, newMaterial)
 			
 		else:
-			print("OFF")
+			print("ON")
 			$CollisionShape.disabled = false
 			$MeshInstance.set_surface_material(0, oldMaterial)
 		inUse = !inUse
 
 func _on_Area_area_entered(_area):
+	print(str($".") + " selected")
 	selected = true
 
 
 func _on_Area_area_exited(area):
+	print(str($".") + " deselected")
 	selected = false
 
 
