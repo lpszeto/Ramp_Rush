@@ -9,6 +9,7 @@ func _ready():
 	#print(str(blocks))
 	for x in blocks:
 		$Camera.connect("selecting", x, "_on_Camera_selecting")
+		$Camera.connect("deselecting", x, "_on_Camera_deselecting")
 		x.connect("addedBlock", $Camera, "_added_Block")
 		x.connect("deletedBlock", $Camera, "_deleted_Block")
 

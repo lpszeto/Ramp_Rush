@@ -4,6 +4,7 @@ export var MAXSPEED = 10.0
 export var SENSITIVITY = 0.2
 
 signal selecting
+signal deselecting
 
 export var maxActiveBlocks = 3
 var numActive = 0 
@@ -37,8 +38,11 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
 	if Input.is_action_just_pressed("select"):
-		if numActive >= maxActiveBlocks:
+		if numActive < maxActiveBlocks:
+			print("here")
 			emit_signal("selecting")
+		else:
+			emit_signal("deselecting")
 	
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -52,6 +56,8 @@ func _input(event):
 		
 func _added_Block():
 	numActive += 1
+	print("added: " + str(numActive) + "-" + str(maxActiveBlocks))
 	
 func _deleted_Block():
 	numActive -= 1
+	print("deleted: " + str(numActive) + "-" + str(maxActiveBlocks))
