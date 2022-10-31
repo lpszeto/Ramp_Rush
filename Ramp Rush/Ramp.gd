@@ -55,11 +55,11 @@ func _on_Area_exited(_area):
 
 func _on_Camera_selecting():
 	if selected:
-		print("sel")
+		#print("sel")
 		toggleUse()
 
 func _on_Camera_deselecting():
 	if selected:
 		if inUse:
-			print("desel")
+			#print("desel")
 			toggleUse()

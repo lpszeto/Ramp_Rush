@@ -5,6 +5,7 @@ export var SENSITIVITY = 0.2
 
 signal selecting
 signal deselecting
+signal updateScore
 
 export var maxActiveBlocks = 10
 var numActive = 0 
@@ -56,8 +57,10 @@ func _input(event):
 		
 func _added_Block():
 	numActive += 1
+	emit_signal("updateScore", numActive, maxActiveBlocks)
 	print("added: " + str(numActive) + "-" + str(maxActiveBlocks))
 	
 func _deleted_Block():
 	numActive -= 1
+	emit_signal("updateScore", numActive, maxActiveBlocks)
 	print("deleted: " + str(numActive) + "-" + str(maxActiveBlocks))
