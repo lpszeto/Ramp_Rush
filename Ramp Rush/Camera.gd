@@ -1,8 +1,15 @@
 extends KinematicBody
 
 export var MAXSPEED = 10.0
+export var MAXACTIVEBLOCKS = 3
+export var SENSITIVITY = 0.2
+
+signal selecting
 
 var velocity = Vector3.ZERO
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(_delta):
 	var direction = Vector3.ZERO
@@ -21,9 +28,22 @@ func _physics_process(_delta):
 		direction.y -= 1
 	
 	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+		direction = direction.normalized().rotated(Vector3.UP, rotation.y)
 	
 	velocity.x = direction.x * MAXSPEED
 	velocity.y = direction.y * MAXSPEED
 	velocity.z = direction.z * MAXSPEED
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	if Input.is_action_just_pressed("select"):
+		emit_signal("selecting")
+	
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		var movement = event.relative
+		rotation.x -= deg2rad(movement.y * SENSITIVITY)
+		rotation.y -= deg2rad(movement.x * SENSITIVITY)
+		rotation.x = clamp(rotation.x, deg2rad(-90), deg2rad(90))
