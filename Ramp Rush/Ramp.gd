@@ -1,5 +1,8 @@
 extends StaticBody
 
+signal addedBlock
+signal deletedBlock
+
 export var inUse = false
 export var selected = false
 
@@ -29,23 +32,24 @@ func _ready():
 func toggleUse():
 	#changes it from ramp placed to not placed
 		if inUse:
-			print("OFF")
-			$CollisionShape.disabled = true
-			$MeshInstance.set_surface_material(0, newMaterial)
-			
+				print("OFF")
+				$CollisionShape.disabled = true
+				$MeshInstance.set_surface_material(0, newMaterial)
+				emit_signal("deletedBlock")
 		else:
 			print("ON")
 			$CollisionShape.disabled = false
 			$MeshInstance.set_surface_material(0, oldMaterial)
+			emit_signal("addedBlock")
 		inUse = !inUse
 
-func _on_Area_area_entered(_area):
-	print(str($".") + " selected")
+func _on_Area_entered(_area):
+	#print(str($".") + " selected")
 	selected = true
 
 
-func _on_Area_area_exited(area):
-	print(str($".") + " deselected")
+func _on_Area_exited(_area):
+	#print(str($".") + " deselected")
 	selected = false
 
 

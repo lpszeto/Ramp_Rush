@@ -1,11 +1,12 @@
 extends KinematicBody
 
 export var MAXSPEED = 10.0
-export var MAXACTIVEBLOCKS = 3
 export var SENSITIVITY = 0.2
 
 signal selecting
 
+export var maxActiveBlocks = 3
+var numActive = 0 
 var velocity = Vector3.ZERO
 
 func _ready():
@@ -36,7 +37,8 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
 	if Input.is_action_just_pressed("select"):
-		emit_signal("selecting")
+		if numActive >= maxActiveBlocks:
+			emit_signal("selecting")
 	
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -47,3 +49,9 @@ func _input(event):
 		rotation.x -= deg2rad(movement.y * SENSITIVITY)
 		rotation.y -= deg2rad(movement.x * SENSITIVITY)
 		rotation.x = clamp(rotation.x, deg2rad(-90), deg2rad(90))
+		
+func _added_Block():
+	numActive += 1
+	
+func _deleted_Block():
+	numActive -= 1

@@ -9,6 +9,8 @@ func _ready():
 	#print(str(blocks))
 	for x in blocks:
 		$Camera.connect("selecting", x, "_on_Camera_selecting")
+		x.connect("addedBlock", $Camera, "_added_Block")
+		x.connect("deletedBlock", $Camera, "_deleted_Block")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
