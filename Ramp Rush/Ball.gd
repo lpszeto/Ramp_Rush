@@ -40,7 +40,7 @@ func _physics_process(_delta):
 			$DirectionalLight6.light_color = Color(randf(), randf(), randf())
 			$DirectionalLight3.light_color = Color(randf(), randf(), randf())
 			$DirectionalLight4.light_energy = 0
-		
+			
 		if delay == 60:
 			$DirectionalLight8.light_energy = 1
 			$DirectionalLight6.light_energy = 0
