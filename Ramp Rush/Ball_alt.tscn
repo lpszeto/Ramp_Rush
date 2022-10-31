@@ -10,8 +10,6 @@
 
 [sub_resource type="SphereShape" id=4]
 
-[sub_resource type="SphereShape" id=4]
-
 [node name="Ball" type="RigidBody"]
 script = ExtResource( 1 )
 
