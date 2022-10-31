@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://BaseBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Pivot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ramp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
+
+[node name="Node" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0 )
+gravity_scale = 0.5
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 11 )
+
+[node name="BaseBlock" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, -2 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 21, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 16, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock21" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 16, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock22" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 16, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 16, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 16, 0 )
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock7" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock8" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock9" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock10" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock11" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock12" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock13" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock14" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock15" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock16" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock17" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock18" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock19" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="BaseBlock20" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+
+[node name="Ramp" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0 )
+
+[node name="Ramp2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 26, 0 )
+
+[node name="Ramp3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 29, 0 )
+
+[node name="Ramp4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 19, 0 )
+
+[node name="Ramp5" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp6" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp7" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp8" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp9" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp10" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp11" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp12" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp13" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp14" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp15" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp16" parent="." instance=ExtResource( 4 )]
+
+[node name="Ramp17" parent="." instance=ExtResource( 4 )]

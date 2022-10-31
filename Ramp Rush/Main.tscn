@@ -52,7 +52,7 @@ SENSITIVITY = 0.1
 [node name="StartPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
 
-[node name="Ground" type="Area" parent="."]
+[node name="Ground" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 collision_mask = 6
 
@@ -160,7 +160,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0 )
 [node name="RespawnTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="Ground" to="." method="_on_Ground_body_entered"]
 [connection signal="pressed" from="Control/Win/Menu" to="Control/Win/Menu" method="_on_Menu_pressed"]
 [connection signal="pressed" from="Control/Lose/Menu" to="Control/Lose/Menu" method="_on_Menu_pressed"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

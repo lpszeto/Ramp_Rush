@@ -22,9 +22,9 @@ func _ready():
 
 #change the layer to none and the color fo a lower alpha value when not used
 #
-#func _unhandled_input(event):
-#	if event.is_action_pressed("ui_accept"):
-#		toggleUse()
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_accept"):
+		toggleUse()
 
 func toggleUse():
 	#changes it from ramp placed to not placed
